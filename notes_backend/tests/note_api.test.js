@@ -6,6 +6,9 @@ const helper = require('./test_helper')
 const assert = require('node:assert')
 const Note = require('../models/note')
 const api = supertest(app)
+const User = require('../models/user')
+const bcrypt = require('bcrypt')
+
 
 describe('when there is initially some notes saved', () => {
     beforeEach(async () => {
@@ -109,8 +112,6 @@ describe('when there is initially some notes saved', () => {
     })
 
 })
-
-
 after(async () => {
     await mongoose.connection.close()
 })
